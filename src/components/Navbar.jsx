@@ -6,11 +6,7 @@ import {
   Menu, 
   X, 
   FileText, 
-  Github, 
-  Linkedin, 
-  Mail,
-  Sparkles,
-  ExternalLink
+  Sparkles
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
@@ -33,7 +29,7 @@ export default function Navbar({ onOpenResume }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 20);
 
       // Scroll spy
       const sections = navItems.map(item => item.href.substring(1));
@@ -63,28 +59,29 @@ export default function Navbar({ onOpenResume }) {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
         isScrolled 
-          ? 'py-3 bg-[#0a0518]/90 dark:bg-[#0a0518]/90 light:bg-white/90 backdrop-blur-md border-b border-purple-500/20 shadow-lg shadow-purple-950/20' 
-          : 'py-5 bg-transparent'
+          ? 'py-2.5 sm:py-3 bg-white/95 dark:bg-[#0a0518]/95 backdrop-blur-md border-b border-purple-200/80 dark:border-purple-500/20 shadow-md shadow-purple-500/5 dark:shadow-purple-950/20' 
+          : 'py-3 sm:py-5 bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+          
           {/* Logo */}
           <a 
             href="#home" 
             onClick={(e) => handleNavClick(e, '#home')}
-            className="flex items-center gap-3 group focus:outline-none"
+            className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-600/30 group-hover:scale-105 group-hover:shadow-purple-500/50 transition-all">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-base sm:text-lg shadow-md shadow-purple-600/30 group-hover:scale-105 transition-all">
               PS
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-lg tracking-tight text-white dark:text-white light:text-slate-900 group-hover:text-purple-400 transition-colors">
+              <span className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                 Prachi Singh
               </span>
-              <span className="text-[11px] font-mono text-purple-400 dark:text-purple-400 light:text-purple-600">
+              <span className="text-[10px] sm:text-[11px] font-mono text-purple-600 dark:text-purple-400 font-semibold">
                 Full Stack & AI Dev
               </span>
             </div>
@@ -101,8 +98,8 @@ export default function Navbar({ onOpenResume }) {
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
                     isActive
-                      ? 'text-white bg-purple-600/30 border border-purple-500/40 shadow-sm shadow-purple-500/20'
-                      : 'text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-purple-700 hover:bg-purple-500/10'
+                      ? 'bg-purple-100 text-purple-700 font-bold border border-purple-300 dark:bg-purple-600/30 dark:text-white dark:border-purple-500/40 shadow-sm'
+                      : 'text-slate-600 hover:text-purple-700 hover:bg-purple-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-purple-500/10'
                   }`}
                 >
                   {item.name}
@@ -117,18 +114,18 @@ export default function Navbar({ onOpenResume }) {
             <button
               onClick={toggleTheme}
               aria-label="Toggle Bright/Dark mode"
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 dark:text-purple-300 light:text-purple-700 transition-all text-xs font-semibold"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-purple-300 dark:border-purple-500/30 bg-purple-50 dark:bg-purple-500/10 hover:bg-purple-100 dark:hover:bg-purple-500/20 text-purple-800 dark:text-purple-300 transition-all text-xs font-semibold shadow-sm cursor-pointer"
               title={`Switch to ${isDark ? 'Bright (Light)' : 'Dark'} Mode`}
             >
               {isDark ? (
                 <>
                   <Sun className="w-4 h-4 text-amber-300 animate-spin-slow" />
-                  <span className="hidden xl:inline">Bright Mode</span>
+                  <span className="hidden xl:inline text-purple-200">Bright Mode</span>
                 </>
               ) : (
                 <>
-                  <Moon className="w-4 h-4 text-purple-600" />
-                  <span className="hidden xl:inline">Dark Mode</span>
+                  <Moon className="w-4 h-4 text-purple-700" />
+                  <span className="hidden xl:inline text-purple-800 font-bold">Dark Mode</span>
                 </>
               )}
             </button>
@@ -136,7 +133,7 @@ export default function Navbar({ onOpenResume }) {
             {/* Resume Button */}
             <button
               onClick={onOpenResume}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-medium text-sm shadow-md shadow-purple-600/25 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-md shadow-purple-600/25 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all cursor-pointer"
             >
               <FileText className="w-4 h-4" />
               <span>Resume</span>
@@ -148,25 +145,26 @@ export default function Navbar({ onOpenResume }) {
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 rounded-lg border border-purple-500/30 bg-purple-500/10 text-purple-300 dark:text-purple-300 light:text-purple-700"
+              className="p-2 rounded-xl border border-purple-300 dark:border-purple-500/30 bg-purple-50 dark:bg-purple-500/10 text-purple-800 dark:text-purple-300 cursor-pointer"
             >
-              {isDark ? <Sun className="w-4 h-4 text-amber-300" /> : <Moon className="w-4 h-4 text-purple-600" />}
+              {isDark ? <Sun className="w-4 h-4 text-amber-300" /> : <Moon className="w-4 h-4 text-purple-700" />}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Menu"
-              className="p-2 rounded-lg border border-purple-500/30 bg-purple-500/10 text-purple-200"
+              className="p-2 rounded-xl border border-purple-300 dark:border-purple-500/30 bg-purple-50 dark:bg-purple-500/10 text-slate-800 dark:text-purple-200 cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
+
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0e0720]/95 dark:bg-[#0e0720]/95 light:bg-white/98 backdrop-blur-xl border-b border-purple-500/25 px-4 pt-4 pb-6 mt-2 shadow-2xl transition-all">
-          <div className="flex flex-col space-y-2">
+        <div className="lg:hidden bg-white/98 dark:bg-[#0e0720]/98 backdrop-blur-xl border-b border-purple-200 dark:border-purple-500/25 px-4 pt-3 pb-6 mt-2 shadow-2xl transition-all">
+          <div className="flex flex-col space-y-1.5">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -174,23 +172,23 @@ export default function Navbar({ onOpenResume }) {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                     isActive
-                      ? 'bg-purple-600/30 text-white font-semibold border-l-4 border-purple-500'
-                      : 'text-slate-300 dark:text-slate-300 light:text-slate-700 hover:bg-purple-500/15'
+                      ? 'bg-purple-100 text-purple-800 border-l-4 border-purple-600 dark:bg-purple-600/30 dark:text-white dark:border-purple-500'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-purple-500/15'
                   }`}
                 >
                   {item.name}
                 </a>
               );
             })}
-            <div className="pt-3 border-t border-purple-500/20 flex flex-col gap-2">
+            <div className="pt-3 border-t border-purple-200 dark:border-purple-500/20 flex flex-col gap-2">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenResume();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium text-sm"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-sm shadow cursor-pointer"
               >
                 <FileText className="w-4 h-4" />
                 View & Download Resume

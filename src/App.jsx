@@ -17,13 +17,13 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-[#090514] dark:bg-[#090514] light:bg-[#faf7fd] text-slate-100 dark:text-slate-100 light:text-slate-900 transition-colors duration-300 selection:bg-purple-600 selection:text-white">
+      <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#faf7fd] text-slate-900 dark:bg-[#090514] dark:text-slate-100 transition-colors duration-300 selection:bg-purple-600 selection:text-white">
         
         {/* Navigation Bar */}
         <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-        {/* Main Sections */}
-        <main>
+        {/* Main Content Sections */}
+        <main className="w-full max-w-full overflow-x-hidden">
           <Hero onOpenResume={() => setIsResumeOpen(true)} />
           <About />
           <Skills />

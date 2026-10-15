@@ -3,21 +3,25 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  // Default to dark mode as requested by user ("professional dark theme ... dark and bright mode")
+  // Check user saved theme preference or default to dark
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('prachi-portfolio-theme');
-    if (saved) return saved;
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('prachi-portfolio-theme');
+      if (saved) return saved;
+    }
     return 'dark';
   });
 
   useEffect(() => {
     const root = document.documentElement;
+    const body = document.body;
+
     if (theme === 'dark') {
       root.classList.add('dark');
-      root.classList.remove('light');
+      if (body) body.classList.add('dark');
     } else {
-      root.classList.add('light');
       root.classList.remove('dark');
+      if (body) body.classList.remove('dark');
     }
     localStorage.setItem('prachi-portfolio-theme', theme);
   }, [theme]);

@@ -10,12 +10,12 @@ export const personalInfo = {
   profileDriveUrl: "https://drive.google.com/file/d/13Ln5CFC3SMq_LyV3Bo5_aSks_AznWtG2/view?usp=sharing",
   profileImage: "/profile.jpg",
   careerObjective: "Aspiring Full Stack & AI Developer (B.Tech CSE, AKTU 2027) with hands-on experience in building full-stack web applications, RESTful APIs, and real-time systems. Seeking a Full Stack Developer role to leverage scalable technologies and software engineering best practices.",
-  about: "I am a passionate software engineer and computer science undergraduate at ABES Institute of Technology with expertise in both modern frontend ecosystems and high-performance backend AI systems. With direct industry experience as a Full Stack Intern at ConsultIT Pvt Ltd, I specialize in architecting reactive user interfaces with React and Tailwind CSS, designing resilient RESTful APIs with FastAPI and Node.js, and deploying intelligent computer vision and machine learning models in production.",
+  about: "I am a passionate software engineer and computer science undergraduate at ABES Institute of Technology with expertise in both modern frontend ecosystems and high-performance backend AI systems. With direct industry experience as a Full Stack Intern at ConsultIT Pvt Ltd, I specialize in architecting reactive user interfaces with React and Tailwind CSS, designing resilient RESTful APIs with FastAPI and Node.js, and deploying intelligent machine learning and computer vision models in production.",
   stats: [
-    { label: "Core Projects", value: "3+", detail: "Full Stack & AI Architectures" },
+    { label: "Core Projects", value: "4+", detail: "Full Stack & ML Architectures" },
     { label: "Industry Experience", value: "Intern", detail: "ConsultIT Pvt Ltd" },
     { label: "B.Tech CSE", value: "2027", detail: "ABESIT, AKTU" },
-    { label: "Certifications", value: "3", detail: "Infosys, Microsoft & Deloitte" }
+    { label: "Certifications", value: "3+", detail: "Infosys, Microsoft & Deloitte" }
   ]
 };
 
@@ -97,7 +97,7 @@ export const skillCategories = [
       { name: "Express.js", level: 84, tag: "Microservices Framework", icon: "Layers" },
       { name: "RESTful APIs", level: 92, tag: "Endpoint Architecture", icon: "Network" },
       { name: "WebSockets", level: 86, tag: "Real-Time Bi-Directional", icon: "Radio" },
-      { name: "PyTorch", level: 82, tag: "Deep Learning & Tensors", icon: "Brain" }
+      { name: "PyTorch & ML", level: 84, tag: "Deep Learning & Scikit-learn", icon: "Brain" }
     ]
   },
   {
@@ -108,7 +108,7 @@ export const skillCategories = [
       { name: "MongoDB", level: 88, tag: "NoSQL Document Store", icon: "FileCode" },
       { name: "PyMongo", level: 86, tag: "Python ODM/Driver", icon: "Layers" },
       { name: "MS SQL Server", level: 80, tag: "Enterprise Relational DB", icon: "Database" },
-      { name: "Cloud Deployment (Render)", level: 85, tag: "Containerized Hosting", icon: "Cloud" }
+      { name: "Cloud Deployment (Render/Vercel)", level: 85, tag: "Containerized Hosting", icon: "Cloud" }
     ]
   },
   {
@@ -146,6 +146,24 @@ export const projects = [
     previewType: "attendance"
   },
   {
+    id: "placement-ml",
+    title: "Student Placement Prediction using Machine Learning",
+    subtitle: "Predictive Analytics & 5-Fold Stratified ML Classification",
+    category: "Machine Learning & Predictive Modeling",
+    badge: "94.5% ROC-AUC Best Model",
+    description: "Engineered a machine learning classification pipeline predicting campus placement outcomes based on academic performance (10th, 12th, degree), specialization, and work experience on a 215-student benchmark dataset. Random Forest achieved 90.6% F1-score and 94.5% ROC-AUC.",
+    keyFeatures: [
+      "Rigorous Feature Engineering: Resolved categorical bias by transitioning nominal features (hsc_s, degree_t) from label encoding to one-hot encoding.",
+      "Class Imbalance Handling: Mitigated 69% Placed vs 31% Not Placed distribution using stratified sampling and class-weighted estimators.",
+      "5-Model Benchmark: Evaluated Logistic Regression, Random Forest, Gradient Boosting, SVM, and KNN across 5-fold stratified cross-validation.",
+      "Top Employability Predictors: Feature importance proved 10th-grade percentage (ssc_p) and degree percentage (degree_p) to be the strongest placement determinants."
+    ],
+    technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Random Forest"],
+    liveUrl: null,
+    githubUrl: "https://github.com/Prachi0216-tech/student-placement-prediction-ml",
+    previewType: "placement"
+  },
+  {
     id: "myroute",
     title: "MyRoute — Real-Time Transit & Commute Platform",
     subtitle: "Interactive Geolocation & Transit Tracking PWA",
@@ -177,13 +195,25 @@ export const projects = [
       "Data Visualizations: Sentiment distribution charts, key polarity phrases, and confidence breakdown."
     ],
     technologies: ["Python", "NLP", "Streamlit", "Scikit-Learn", "TF-IDF", "Pandas", "Matplotlib"],
-    liveUrl: null, // live link not provided in resume
+    liveUrl: null,
     githubUrl: "https://github.com/Prachi0216-tech/brand-sentiment-analysis",
     previewType: "sentiment"
   }
 ];
 
 export const certifications = [
+  {
+    id: "deloitte-strategy",
+    title: "Deloitte Technology Strategy Virtual Experience",
+    issuer: "Deloitte & Forage",
+    date: "Certified (April 2026)",
+    badge: "Strategy & Cloud Architecture",
+    description: "Completed real-world enterprise simulations focused on data interpretation, cloud transformation roadmaps, and strategic technical planning for modern enterprises.",
+    skillsLearned: ["Technology Strategy", "Cloud Modernization", "Data Interpretation", "Enterprise Architecture"],
+    verifyUrl: "https://drive.google.com/file/d/1-fjfMPgMTUQoCPuW4xIGlEm5QoRIdhZV/view?usp=sharing",
+    certificateImage: "/certificates/deloitte.jpg",
+    driveUrl: "https://drive.google.com/file/d/1-fjfMPgMTUQoCPuW4xIGlEm5QoRIdhZV/view?usp=sharing"
+  },
   {
     id: "infosys-dsa",
     title: "Data Structures and Algorithms using Python",
@@ -192,7 +222,9 @@ export const certifications = [
     badge: "Core CS & Algorithms",
     description: "Comprehensive certification covering algorithmic complexity, dynamic programming, tree traversals, graph algorithms, and efficient data structures implemented in Python.",
     skillsLearned: ["Data Structures", "Python", "Algorithms", "Optimization", "Time & Space Complexity"],
-    verifyUrl: "https://infyspringboard.onwingspan.com/"
+    verifyUrl: "https://infyspringboard.onwingspan.com/",
+    certificateImage: null,
+    driveUrl: null
   },
   {
     id: "copilot-prompt",
@@ -202,17 +234,9 @@ export const certifications = [
     badge: "AI Engineering & Dev Productivity",
     description: "Hands-on training in context structuring, code synthesis, iterative prompt refinement, and leveraging GitHub Copilot for enterprise code development.",
     skillsLearned: ["Prompt Engineering", "GitHub Copilot", "Generative AI", "Developer Productivity", "Code Generation"],
-    verifyUrl: "https://www.simplilearn.com/"
-  },
-  {
-    id: "deloitte-strategy",
-    title: "Deloitte Technology Strategy Virtual Experience",
-    issuer: "Forage & Deloitte",
-    date: "April 2026",
-    badge: "Enterprise Strategy & Architecture",
-    description: "Completed real-world enterprise simulations focused on data interpretation, cloud transformation roadmaps, and strategic technical planning for modern enterprises.",
-    skillsLearned: ["Technology Strategy", "Cloud Modernization", "Data Interpretation", "Enterprise Architecture"],
-    verifyUrl: "https://www.theforage.com/"
+    verifyUrl: "https://www.simplilearn.com/",
+    certificateImage: null,
+    driveUrl: null
   }
 ];
 
@@ -224,15 +248,19 @@ export const achievements = [
     date: "April 2026",
     category: "Strategic Case & Tech Architecture",
     description: "Completed real-world simulations focused on data interpretation and strategic technical planning, analyzing technology infrastructure bottlenecks and formulating enterprise cloud roadmaps.",
-    tags: ["Enterprise Planning", "Data Strategy", "Systems Architecture"]
+    tags: ["Enterprise Planning", "Data Strategy", "Systems Architecture"],
+    verifyUrl: "https://drive.google.com/file/d/1-fjfMPgMTUQoCPuW4xIGlEm5QoRIdhZV/view?usp=sharing",
+    certificateImage: "/certificates/deloitte.jpg"
   },
   {
     id: "aavishkar-hackathon",
-    title: "Aavishkar 3.0 Tech Innovation",
+    title: "Aavishkar 3.0 Tech Innovation Event",
     organization: "ABES Institute of Technology",
     date: "June 2024",
     category: "Hackathon & Prototyping",
     description: "Participated in tech innovation event, demonstrating collaborative prototyping, rapid ideation, and agile problem-solving under strict time constraints.",
-    tags: ["Hackathon", "Rapid Prototyping", "Team Collaboration", "Problem Solving"]
+    tags: ["Hackathon", "Rapid Prototyping", "Team Collaboration", "Problem Solving"],
+    verifyUrl: "https://drive.google.com/file/d/10X0Kw2ebRp2EGkZachO4wlUmjoZyBEE5/view",
+    certificateImage: "/certificates/aavishkar.jpg"
   }
 ];

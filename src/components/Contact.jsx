@@ -55,7 +55,6 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate reliable form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
@@ -63,21 +62,13 @@ export default function Contact() {
         particleCount: 120,
         spread: 80,
         origin: { y: 0.6 },
-        colors: ['#a855f7', '#60a5fa', '#c084fc', '#3b82f6', '#ec4899']
+        colors: ['#9333ea', '#3b82f6', '#c084fc', '#06b6d4', '#ec4899']
       });
 
-      // Prepare mailto link as direct fallback so visitor can also fire email client if desired
-      const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
-        formData.subject
-      )}&body=${encodeURIComponent(
-        `Hi Prachi,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-      )}`;
-
-      // Reset form after short delay
       setTimeout(() => {
         setFormData({ name: '', email: '', subject: '', message: '' });
       }, 3000);
-    }, 900);
+    }, 800);
   };
 
   const handleCopy = (text, type) => {
@@ -87,50 +78,50 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 relative">
+    <section id="contact" className="py-20 relative w-full overflow-hidden">
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/10 dark:bg-purple-600/15 light:bg-purple-200/30 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-80 h-80 bg-purple-500/10 dark:bg-purple-600/15 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 dark:text-purple-300 light:text-purple-800 text-xs font-semibold uppercase tracking-wider mb-3">
-            <MessageSquare className="w-3.5 h-3.5 text-purple-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-500/10 border border-purple-300 dark:border-purple-500/30 text-purple-800 dark:text-purple-300 text-xs font-bold uppercase tracking-wider mb-3">
+            <MessageSquare className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
             <span>Get in Touch</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
-            Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Me</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400">Me</span>
           </h2>
-          <p className="mt-3 text-base text-slate-400 dark:text-slate-400 light:text-slate-600 max-w-2xl">
+          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl">
             Interested in discussing full-time opportunities, software development internships, or AI projects? Let's connect!
           </p>
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-6xl mx-auto w-full">
           
           {/* Left Column: Direct Info Cards (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-6 w-full">
             
-            <div className="p-6 sm:p-7 rounded-3xl bg-purple-950/20 dark:bg-purple-950/30 light:bg-white border border-purple-500/25 dark:border-purple-500/25 light:border-purple-200 shadow-xl backdrop-blur-md">
-              <h3 className="text-xl font-bold text-white dark:text-white light:text-slate-900 mb-6 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-purple-400" />
+            <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-purple-950/30 border border-purple-200/90 dark:border-purple-500/25 shadow-xl shadow-purple-500/5">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                 <span>Contact Channels</span>
               </h3>
 
               {/* Email Card with 1-click copy */}
-              <div className="p-4 rounded-2xl bg-purple-950/40 dark:bg-purple-950/40 light:bg-purple-50 border border-purple-500/20 mb-4 hover:border-purple-500/40 transition-colors">
+              <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-500/20 mb-4 hover:border-purple-400 dark:hover:border-purple-500/40 transition-colors">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-purple-600/20 border border-purple-500/30 text-purple-300">
-                      <Mail className="w-5 h-5 text-purple-400" />
+                    <div className="p-2.5 rounded-xl bg-purple-100 dark:bg-purple-600/20 border border-purple-200 dark:border-purple-500/30 text-purple-700 dark:text-purple-300 shrink-0">
+                      <Mail className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <div>
-                      <p className="text-xs font-mono text-slate-400 dark:text-slate-400 light:text-slate-600">Email Address</p>
+                    <div className="min-w-0">
+                      <p className="text-xs font-mono text-slate-600 dark:text-slate-400 font-semibold">Email Address</p>
                       <a 
                         href={`mailto:${personalInfo.email}`} 
-                        className="text-sm font-bold text-white dark:text-white light:text-slate-900 hover:text-purple-400 transition-colors break-all"
+                        className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors break-all"
                       >
                         {personalInfo.email}
                       </a>
@@ -138,26 +129,26 @@ export default function Contact() {
                   </div>
                   <button
                     onClick={() => handleCopy(personalInfo.email, 'email')}
-                    className="p-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 transition-colors"
+                    className="p-2 rounded-lg bg-white dark:bg-purple-500/10 hover:bg-purple-100 dark:hover:bg-purple-500/20 text-purple-700 dark:text-purple-300 transition-colors cursor-pointer shrink-0 border border-purple-200 dark:border-transparent"
                     title="Copy Email"
                   >
-                    {copiedItem === 'email' ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    {copiedItem === 'email' ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
               </div>
 
               {/* Phone Card with 1-click copy */}
-              <div className="p-4 rounded-2xl bg-purple-950/40 dark:bg-purple-950/40 light:bg-purple-50 border border-purple-500/20 mb-4 hover:border-purple-500/40 transition-colors">
+              <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-500/20 mb-4 hover:border-purple-400 dark:hover:border-purple-500/40 transition-colors">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-purple-600/20 border border-purple-500/30 text-purple-300">
-                      <Phone className="w-5 h-5 text-emerald-400" />
+                    <div className="p-2.5 rounded-xl bg-purple-100 dark:bg-purple-600/20 border border-purple-200 dark:border-purple-500/30 text-purple-700 dark:text-purple-300 shrink-0">
+                      <Phone className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     </div>
-                    <div>
-                      <p className="text-xs font-mono text-slate-400 dark:text-slate-400 light:text-slate-600">Phone Number</p>
+                    <div className="min-w-0">
+                      <p className="text-xs font-mono text-slate-600 dark:text-slate-400 font-semibold">Phone Number</p>
                       <a 
                         href={`tel:${personalInfo.phone}`} 
-                        className="text-sm font-bold text-white dark:text-white light:text-slate-900 hover:text-purple-400 transition-colors"
+                        className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                       >
                         {personalInfo.phone}
                       </a>
@@ -165,23 +156,23 @@ export default function Contact() {
                   </div>
                   <button
                     onClick={() => handleCopy(personalInfo.phone, 'phone')}
-                    className="p-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 transition-colors"
+                    className="p-2 rounded-lg bg-white dark:bg-purple-500/10 hover:bg-purple-100 dark:hover:bg-purple-500/20 text-purple-700 dark:text-purple-300 transition-colors cursor-pointer shrink-0 border border-purple-200 dark:border-transparent"
                     title="Copy Phone"
                   >
-                    {copiedItem === 'phone' ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    {copiedItem === 'phone' ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
               </div>
 
               {/* Location Card */}
-              <div className="p-4 rounded-2xl bg-purple-950/40 dark:bg-purple-950/40 light:bg-purple-50 border border-purple-500/20 mb-6">
+              <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-500/20 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-purple-600/20 border border-purple-500/30 text-purple-300">
-                    <MapPin className="w-5 h-5 text-cyan-400" />
+                  <div className="p-2.5 rounded-xl bg-purple-100 dark:bg-purple-600/20 border border-purple-200 dark:border-purple-500/30 text-purple-700 dark:text-purple-300 shrink-0">
+                    <MapPin className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
                   </div>
                   <div>
-                    <p className="text-xs font-mono text-slate-400 dark:text-slate-400 light:text-slate-600">Location</p>
-                    <p className="text-sm font-bold text-white dark:text-white light:text-slate-900">
+                    <p className="text-xs font-mono text-slate-600 dark:text-slate-400 font-semibold">Location</p>
+                    <p className="text-sm font-bold text-slate-900 dark:text-white">
                       {personalInfo.location}
                     </p>
                   </div>
@@ -189,14 +180,14 @@ export default function Contact() {
               </div>
 
               {/* Social Buttons */}
-              <div className="pt-4 border-t border-purple-500/20 flex flex-col sm:flex-row gap-3">
+              <div className="pt-4 border-t border-purple-200 dark:border-purple-500/20 flex flex-col sm:flex-row gap-3">
                 <a
                   href={personalInfo.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 p-3 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-purple-50 border border-slate-700 dark:border-slate-700 light:border-purple-200 hover:border-purple-500 flex items-center justify-center gap-2 text-xs font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800 transition-all"
+                  className="flex-1 p-3 rounded-xl bg-purple-50 dark:bg-slate-900/60 border border-purple-200 dark:border-slate-700 hover:border-purple-400 dark:hover:border-purple-500 flex items-center justify-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-200 transition-all cursor-pointer"
                 >
-                  <Github className="w-4 h-4 text-purple-400" />
+                  <Github className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                   <span>GitHub Profile</span>
                 </a>
 
@@ -204,9 +195,9 @@ export default function Contact() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 p-3 rounded-xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-purple-50 border border-slate-700 dark:border-slate-700 light:border-purple-200 hover:border-purple-500 flex items-center justify-center gap-2 text-xs font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800 transition-all"
+                  className="flex-1 p-3 rounded-xl bg-purple-50 dark:bg-slate-900/60 border border-purple-200 dark:border-slate-700 hover:border-purple-400 dark:hover:border-purple-500 flex items-center justify-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-200 transition-all cursor-pointer"
                 >
-                  <Linkedin className="w-4 h-4 text-cyan-400" />
+                  <Linkedin className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
                   <span>LinkedIn Profile</span>
                 </a>
               </div>
@@ -216,34 +207,34 @@ export default function Contact() {
           </div>
 
           {/* Right Column: Interactive Contact Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-3xl bg-purple-950/20 dark:bg-purple-950/30 light:bg-white border border-purple-500/25 dark:border-purple-500/25 light:border-purple-200 shadow-xl backdrop-blur-md">
-              <h3 className="text-xl font-bold text-white dark:text-white light:text-slate-900 mb-2">
+          <div className="lg:col-span-7 w-full">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-purple-950/30 border border-purple-200/90 dark:border-purple-500/25 shadow-xl shadow-purple-500/5 w-full">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                 Send a Direct Message
               </h3>
-              <p className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mb-6">
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-6">
                 Fill in the form below and I will get back to you as soon as possible.
               </p>
 
               {submitSuccess && (
-                <div className="mb-6 p-4 rounded-2xl bg-emerald-950/50 border border-emerald-500/40 flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <div className="mb-6 p-4 rounded-2xl bg-emerald-100 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-500/40 flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-sm font-bold text-emerald-200">Message dispatched successfully!</p>
-                    <p className="text-xs text-emerald-300/90 mt-0.5">
+                    <p className="text-sm font-bold text-emerald-900 dark:text-emerald-200">Message dispatched successfully!</p>
+                    <p className="text-xs text-emerald-800 dark:text-emerald-300 mt-0.5">
                       Thank you for reaching out. I look forward to connecting with you.
                     </p>
                   </div>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4 w-full">
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name field */}
                   <div>
-                    <label className="block text-xs font-mono font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5 flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5 text-purple-400" />
+                    <label className="block text-xs font-mono font-bold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                      <User className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                       <span>Your Name *</span>
                     </label>
                     <input
@@ -251,12 +242,12 @@ export default function Contact() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. John Doe"
-                      className={`w-full px-4 py-2.5 rounded-xl bg-purple-950/30 dark:bg-purple-950/30 light:bg-slate-50 border ${
-                        errors.name ? 'border-rose-500' : 'border-purple-500/25 focus:border-purple-500'
-                      } focus:outline-none text-sm text-white dark:text-white light:text-slate-900 placeholder-slate-500 transition-all`}
+                      className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-purple-950/30 border ${
+                        errors.name ? 'border-rose-500' : 'border-purple-200 dark:border-purple-500/25 focus:border-purple-600'
+                      } focus:outline-none text-sm text-slate-900 dark:text-white placeholder-slate-400 transition-all`}
                     />
                     {errors.name && (
-                      <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">
+                      <p className="text-xs text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1 font-semibold">
                         <AlertCircle className="w-3 h-3" /> {errors.name}
                       </p>
                     )}
@@ -264,8 +255,8 @@ export default function Contact() {
 
                   {/* Email field */}
                   <div>
-                    <label className="block text-xs font-mono font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5 flex items-center gap-1.5">
-                      <AtSign className="w-3.5 h-3.5 text-purple-400" />
+                    <label className="block text-xs font-mono font-bold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                      <AtSign className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                       <span>Your Email *</span>
                     </label>
                     <input
@@ -273,12 +264,12 @@ export default function Contact() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="e.g. john@example.com"
-                      className={`w-full px-4 py-2.5 rounded-xl bg-purple-950/30 dark:bg-purple-950/30 light:bg-slate-50 border ${
-                        errors.email ? 'border-rose-500' : 'border-purple-500/25 focus:border-purple-500'
-                      } focus:outline-none text-sm text-white dark:text-white light:text-slate-900 placeholder-slate-500 transition-all`}
+                      className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-purple-950/30 border ${
+                        errors.email ? 'border-rose-500' : 'border-purple-200 dark:border-purple-500/25 focus:border-purple-600'
+                      } focus:outline-none text-sm text-slate-900 dark:text-white placeholder-slate-400 transition-all`}
                     />
                     {errors.email && (
-                      <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">
+                      <p className="text-xs text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1 font-semibold">
                         <AlertCircle className="w-3 h-3" /> {errors.email}
                       </p>
                     )}
@@ -287,8 +278,8 @@ export default function Contact() {
 
                 {/* Subject field */}
                 <div>
-                  <label className="block text-xs font-mono font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5 flex items-center gap-1.5">
-                    <FileEdit className="w-3.5 h-3.5 text-purple-400" />
+                  <label className="block text-xs font-mono font-bold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                    <FileEdit className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                     <span>Subject *</span>
                   </label>
                   <input
@@ -296,12 +287,12 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="e.g. Full Stack Developer Opportunity / Project Inquiry"
-                    className={`w-full px-4 py-2.5 rounded-xl bg-purple-950/30 dark:bg-purple-950/30 light:bg-slate-50 border ${
-                      errors.subject ? 'border-rose-500' : 'border-purple-500/25 focus:border-purple-500'
-                    } focus:outline-none text-sm text-white dark:text-white light:text-slate-900 placeholder-slate-500 transition-all`}
+                    className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-purple-950/30 border ${
+                      errors.subject ? 'border-rose-500' : 'border-purple-200 dark:border-purple-500/25 focus:border-purple-600'
+                    } focus:outline-none text-sm text-slate-900 dark:text-white placeholder-slate-400 transition-all`}
                   />
                   {errors.subject && (
-                    <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">
+                    <p className="text-xs text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1 font-semibold">
                       <AlertCircle className="w-3 h-3" /> {errors.subject}
                     </p>
                   )}
@@ -309,8 +300,8 @@ export default function Contact() {
 
                 {/* Message field */}
                 <div>
-                  <label className="block text-xs font-mono font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5 flex items-center gap-1.5">
-                    <MessageSquare className="w-3.5 h-3.5 text-purple-400" />
+                  <label className="block text-xs font-mono font-bold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                    <MessageSquare className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                     <span>Message *</span>
                   </label>
                   <textarea
@@ -318,12 +309,12 @@ export default function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Write your message here..."
-                    className={`w-full px-4 py-2.5 rounded-xl bg-purple-950/30 dark:bg-purple-950/30 light:bg-slate-50 border ${
-                      errors.message ? 'border-rose-500' : 'border-purple-500/25 focus:border-purple-500'
-                    } focus:outline-none text-sm text-white dark:text-white light:text-slate-900 placeholder-slate-500 transition-all resize-none`}
+                    className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-purple-950/30 border ${
+                      errors.message ? 'border-rose-500' : 'border-purple-200 dark:border-purple-500/25 focus:border-purple-600'
+                    } focus:outline-none text-sm text-slate-900 dark:text-white placeholder-slate-400 transition-all resize-none`}
                   ></textarea>
                   {errors.message && (
-                    <p className="text-xs text-rose-400 mt-1 flex items-center gap-1">
+                    <p className="text-xs text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1 font-semibold">
                       <AlertCircle className="w-3 h-3" /> {errors.message}
                     </p>
                   )}
@@ -333,7 +324,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50 hover:-translate-y-0.5 transition-all disabled:opacity-50"
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50 hover:-translate-y-0.5 transition-all disabled:opacity-50 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
@@ -352,7 +343,7 @@ export default function Contact() {
                 <div className="text-center pt-2">
                   <a
                     href={`mailto:${personalInfo.email}?subject=Portfolio%20Inquiry`}
-                    className="text-xs text-purple-400 hover:text-purple-300 underline font-medium"
+                    className="text-xs text-purple-700 dark:text-purple-400 hover:underline font-semibold"
                   >
                     Or open directly in your mail client
                   </a>

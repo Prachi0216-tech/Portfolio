@@ -25,3 +25,5 @@ dist-ssr
 
 # Temporary test files
 profile_test.jpg
+
+.vercel
